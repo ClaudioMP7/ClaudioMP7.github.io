@@ -1,0 +1,58 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+$blue-carpin:(
+  50: #224694,
+  100: #224694,
+  200: #224694,
+  300: #224694,
+  400: #224694,
+  500: #224694,
+  600: #224694,
+  700: #224694,
+  800: #224694,
+  900: #122246,
+  contrast: (
+   50: white,
+   100: rgb(24, 115, 35),
+   200: rgb(24, 115, 35),
+   300: rgb(24, 115, 35),
+   400: rgb(24, 115, 35),
+   500: white,
+   600: rgb(24, 115, 35),
+   700: rgb(24, 115, 35),
+   800: rgb(24, 115, 35),
+   900: rgb(24, 115, 35),
+ )
+);
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Carpin-primary: mat.define-palette($blue-carpin);
+$Carpin-accent: mat.define-palette($blue-carpin, 50);
+
+// The warn palette is optional (defaults to red).
+$Carpin-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Carpin-theme: mat.define-light-theme((
+  color: (
+    primary: $Carpin-primary,
+    accent: $Carpin-accent,
+    warn: $Carpin-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Carpin-theme);
+
