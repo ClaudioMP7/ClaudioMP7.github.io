@@ -1,0 +1,31 @@
+img {
+    width: 18rem;
+}
+
+div {
+    box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 3px 3px;
+    padding: 2rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 8px;
+
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.field-correo{
+    margin-top: 1rem;
+}
+
+.btnIniciarSesion{
+    margin-top: 0.5rem;
+}
+
