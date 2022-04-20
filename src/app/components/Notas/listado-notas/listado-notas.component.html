@@ -1,0 +1,68 @@
+<div class="border">
+    <div class="sinNotas" *ngIf="!notasExistentes; else notasContainer">
+        <h1>Sin notas</h1>
+        <button mat-flat-button color="primary" class="btnEnviarBit" (click)="crearNota('1')">Iniciar Nota</button>
+    </div>
+</div>
+
+
+<ng-template #notasContainer>
+    <div class="detallesBitacora"  *ngFor="let nota of listaNotas" #notasContainer>
+        
+            <div class="detallesNota" *ngIf="notasExistentes">
+                <div class="border midPadding colDetalles">
+                    <div class="detVert">
+                        <h3 class="detalle">{{ nota.idNota }}</h3>
+                        <h3 class="descripcion">Nota</h3>
+                    </div>
+                </div>
+                
+                <div class="border midPadding colDetalles">
+                    <div class="detVert">
+                        <h3 class="detalle">{{nota.fecha?.split("T")![0]}} {{nota.fecha?.split("T")![1].split(".")![0]}}hrs</h3>
+                        <h3 class="descripcion">Fecha de creación</h3>
+                    </div>
+                </div>
+                
+                <div class="border midPadding colDetalles">
+                    <div class="detVert">
+                        <h3 class="detalle" *ngIf="ultimaRespuesta!='Na'; else sinRespuestas">{{ ultimaRespuesta.split("T")[0] }} {{ ultimaRespuesta.split("T")[1]!.split(".")[0] }} </h3>
+                        <ng-template #sinRespuestas>
+                            <h3 class="detalle">Sin respuestas</h3>
+                        </ng-template>
+                        <h3 class="descripcion">Fecha de última respuesta</h3>
+                    </div>
+                </div>
+            </div>
+            
+            
+                
+            <mat-card class="nota">
+                <mat-card-title> Nota Inicial ({{nota.usuario}}) </mat-card-title>
+                <mat-card-subtitle> {{nota.fecha?.split("T")![0]}} {{nota.fecha?.split("T")![1].split(".")![0]}}hrs </mat-card-subtitle>
+                <mat-card-content>{{nota.mensaje}}</mat-card-content>
+                <mat-divider></mat-divider>
+                <section class="firmas" [formGroup]="firmas">
+                    <mat-checkbox formControlName="firmaCarpin">Firma Carpín</mat-checkbox>
+                    <mat-checkbox formControlName="firmaContratista">Firma Contratista</mat-checkbox>
+                </section>
+            </mat-card>
+        
+            <mat-card class="respuesta" *ngFor="let respuesta of listaRespuestas">
+                <mat-card-title> Respuesta ({{respuesta.usuario}}) </mat-card-title>
+                <mat-card-subtitle> {{respuesta.fecha?.split("T")![0]}} {{respuesta.fecha?.split("T")![1].split(".")![0]}}hrs </mat-card-subtitle>
+                <mat-card-content>{{respuesta.mensaje}}</mat-card-content>
+                <mat-divider></mat-divider>
+                <section class="firmas" [formGroup]="firmas">
+                    <mat-checkbox formControlName="firmaCarpin">Firma Carpín</mat-checkbox>
+                    <mat-checkbox formControlName="firmaContratista">Firma Contratista</mat-checkbox>
+                </section>
+            </mat-card>
+        
+        
+            <button mat-flat-button color="primary" class="btnCrearNota" (click)="crearNota('2')">Crear Respuesta</button>
+    
+            
+        
+    </div>
+</ng-template>

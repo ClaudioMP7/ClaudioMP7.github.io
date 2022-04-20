@@ -1,0 +1,30 @@
+<h2>Crear Especialidad</h2>  
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+  <div class="filtros">
+    <mat-form-field class="formUsuario inputName" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" [(ngModel)]="ubicacion.nombre" #input>
+      </mat-form-field>
+  
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Estado</mat-label>
+        <input matInput type="text" [(ngModel)]="ubicacion.estado" #input>
+      </mat-form-field>
+
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Ciudad</mat-label>
+        <input matInput type="text" [(ngModel)]="ubicacion.ciudad" #input>
+      </mat-form-field>
+
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Dirección</mat-label>
+        <input matInput type="text" [(ngModel)]="ubicacion.direccion" #input>
+      </mat-form-field>
+  
+  </div>
+</mat-dialog-content>
+<div class="botones">
+  <button mat-raised-button color="primary" class="btnCrearUsuario" (click)="crear()" mat-dialog-close>Crear</button>
+  <button mat-raised-button color="warn" class="btnCrearUsuario" mat-dialog-close>Cancelar</button>
+</div>

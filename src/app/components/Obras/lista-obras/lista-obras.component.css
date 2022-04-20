@@ -1,0 +1,158 @@
+.bg{
+    background-color: rgb(244,246,249);
+    min-height: 100%;
+    padding: 1rem;
+}
+
+.radio1{
+    margin-bottom: 1rem;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+    border-color: #224694;
+}
+
+
+.mat-row:nth-child(even){
+    background: #22469411;
+}
+
+.mat-header-cell{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.container{
+    background-color: white;
+    padding: 2rem;
+}
+
+.formUsuario, .formRol{
+    width: 20rem;
+}
+
+.mat-divider{
+    margin-bottom: 1rem;
+}
+
+.rb{
+    display: flex;
+    flex-direction: column;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnFiltros{
+    width: 7rem;
+}
+
+.filtro{
+    width: 17rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.filtros{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buscadores{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter{
+    width: 16rem;
+}
+
+.formUsuario{
+    margin-right: 1rem;
+}
+
+.add{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    align-items: flex-end;
+}
+
+.addButton{
+    box-shadow: none !important;
+}
+
+table{
+    width: 100%;
+    box-shadow: none !important;
+}
+
+.sheet-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mat-column-nObra{
+    flex:0 0 10% !important;
+}
+
+.mobile{
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: bold;
+    margin-right: 0.25rem;
+    display: none;
+}
+
+@media(max-width:768px){
+    .mobile{
+        display: grid;
+    }
+
+    .filtros{
+        flex-direction: column-reverse;
+    }
+
+    .mat-header-row{
+        display: none;
+    }
+
+    .mat-row{
+        align-items: flex-start;
+        box-sizing: border-box;
+        flex-direction: column;
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+        min-height: 35px;
+    }
+
+    .mat-cell{
+        margin-left: 1rem;
+        height: 3px !important;
+    }
+
+    .mat-row .mat-cell{
+        border: none;
+    }
+
+    .sheet-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mat-row{
+        padding: 0.5rem;
+    }
+}

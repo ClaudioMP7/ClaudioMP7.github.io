@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<body>
+    <div class="bg"> 
+        <div class="bg-header">
+            <div class="sheetHeader">
+                <h1>Detalles de la Bitácora</h1>
+                <button mat-button color="primary" routerLink="/bitacoras" class="btnBack"><mat-icon>keyboard_arrow_left</mat-icon>Bitácoras</button>
+            </div>
+            <button mat-flat-button color="primary" class="btnEnviarBit">Enviar informe</button>
+        </div>
+        
+        <div class="container">
+            <div class="border">
+                <div class="titulo">
+                    <h2 class="tituloBit">Bitácora: {{bitacoraInfo.folio}}</h2>
+                    <h2 class="tituloBit">Obra: {{bitacoraInfo.tObra}}</h2>
+                </div>
+                <div class="detallesBit">
+                    <div class="detalleCol">
+                        <div class="detVert">
+                            <h3 class="detalle">{{bitacoraInfo.uObra}}</h3>
+                            <h3 class="descripcion">Ubicación</h3>
+                        </div>
+                    </div>
+                    <div class="detalleCol">
+                        <div class="detVert">
+                            <h3 class="detalle">{{ bitacoraInfo.especialidad }}</h3>                           
+                            <h3 class="descripcion">Especialidad</h3>
+                        </div>
+                    </div>
+                   <div class="detalleCol">
+                        <div class="detVert">
+                            <h3 class="detalle">{{ bitacoraInfo.contratista }}</h3>
+                            <h3 class="descripcion">Contratista</h3>
+                        </div>
+                   </div>
+
+                </div>
+            </div>
+
+            <div class="cuerpoBitacora">
+                <div class="involucradosContainer border">
+                    <app-involucrados></app-involucrados>
+                </div>
+
+                <app-listado-notas></app-listado-notas>         
+                
+            </div>
+
+
+        </div>
+
+
+    </div>
+</body>

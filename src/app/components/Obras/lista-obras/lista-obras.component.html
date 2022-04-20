@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+<body>
+    <div class="bg">
+        <div class="container">
+            <div class="sheet-header">
+                <h1>Obras</h1>
+                <div class="add">
+                  <div class="example-button-container">
+                    <button mat-mini-fab color="primary" (click)="openAddDialog()" matTooltipPosition="left" matTooltip="Crear nueva obra" aria-label="Agregar Obra" class="mat-elevation-z4">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+          <mat-divider></mat-divider>
+          <div class="filtros">
+
+            <mat-radio-group aria-label="Select an option" class="rb filter" [(ngModel)]="filtros.local">
+              <mat-radio-button class="radio1" value="1">Local</mat-radio-button>
+              <mat-radio-button value="0">Foránea</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field class="filter" appearance="fill">
+              <mat-label>Inicio de la obra</mat-label>
+              <mat-date-range-input [rangePicker]="inicio">
+                <input matStartDate placeholder="Start date" [(ngModel)]="filtros.inicioA" #filtro1>
+                <input matEndDate placeholder="End date" [(ngModel)]="filtros.inicioB" #filtro2>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="inicio"></mat-datepicker-toggle>
+              <mat-date-range-picker #inicio></mat-date-range-picker>
+            </mat-form-field>
+
+            <mat-form-field class="filter" appearance="fill">
+              <mat-label>Fin de la obra</mat-label>
+              <mat-date-range-input [rangePicker]="fin">
+                <input matStartDate placeholder="Start date" [(ngModel)]="filtros.finA" #filtro3>
+                <input matEndDate placeholder="End date" [(ngModel)]="filtros.finB" #filtro4>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="fin"></mat-datepicker-toggle>
+              <mat-date-range-picker #fin></mat-date-range-picker>
+            </mat-form-field>
+
+            <div class="botones filter">
+
+              <button mat-raised-button color="primary" class="btnFiltros" (click)="filtrar()" mat-dialog-close>Filtrar</button>
+              <button mat-raised-button color="primary" class="btnFiltros" (click)="borrarFiltros()" mat-dialog-close>Borrar Filtros</button>   
+           
+            </div>
+
+          </div>
+
+            <div class="options">
+              <div class="buscadores">
+                  <mat-form-field class="filter num" appearance="fill">
+                    <mat-label>Número de obra</mat-label>
+                    <input matInput [formControl]="numFilter" #buscador1>
+                  </mat-form-field>
+
+                  <mat-form-field class="filter" appearance="fill">
+                    <mat-label>Título de obra</mat-label>
+                    <input matInput [formControl]="tituloFilter" #buscador2>
+                  </mat-form-field>
+
+                  <mat-form-field class="filter" appearance="fill">
+                    <mat-label>Ubicación de la obra</mat-label>
+                    <input matInput [formControl]="ubiFilter" #buscador3>
+                  </mat-form-field>
+
+                  <mat-form-field class="filter" appearance="fill">
+                    <mat-label>Prototipo</mat-label>
+                    <input matInput [formControl]="protoFilter" #buscador4>
+                  </mat-form-field>
+              </div>
+
+            </div>
+    
+            <div class="table">
+                <mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+                
+                    
+                    <ng-container matColumnDef="nObra">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> N. Obra </mat-header-cell>
+                    <mat-cell *matCellDef="let obra"> <span class="mobile">N. Obra:</span> {{obra.numero}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="tipo">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+                      <mat-cell *matCellDef="let obra"> <span class="mobile">Tipo:</span> {{obra.local}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="titulo">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Título </mat-header-cell>
+                    <mat-cell *matCellDef="let obra"> <span class="mobile">Título:</span> {{obra.titulo}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="ubicacion">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Ubicación </mat-header-cell>
+                        <mat-cell *matCellDef="let obra"> <span class="mobile">Ubicación:</span> {{obra.ubicacionObra}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="inicio">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Inicio de la obra </mat-header-cell>
+                        <mat-cell *matCellDef="let obra"> <span class="mobile">Inicio de obra:</span> {{obra.inicio.split("T",1)[0]}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="fin">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Fin de la obra </mat-header-cell>
+                        <mat-cell *matCellDef="let obra"> <span class="mobile">Fin de obra:</span> {{obra.fin.split("T",1)[0]}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="prototipo">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Prototipo de la obra </mat-header-cell>
+                        <mat-cell *matCellDef="let obra"><span class="mobile">Prototipo:</span> {{obra.prototipo}} </mat-cell>
+                    </ng-container>
+                
+                
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let obra; columns: displayedColumns;"
+                    (click)="openDetail(obra)"></mat-row>
+                
+                    
+                    <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No se encontró ningún resultado relacionado a sus filtros</td>
+                    </tr>
+                </mat-table>
+            </div>
+            
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    
+        </div>
+    </div>
+  </body>

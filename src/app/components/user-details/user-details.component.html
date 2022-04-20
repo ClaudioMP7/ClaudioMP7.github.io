@@ -1,0 +1,45 @@
+<div class="card-header">
+  <h2 class="card-name">Editar Usuario</h2>  
+  <button mat-raised-button color="warn" class="btnEliminar" (click)="eliminar()">Eliminar Usuario</button>
+</div>
+
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+  <div class="inputs">
+    <mat-form-field class="formUsuario nameInput" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" [(ngModel)]="user.nombre" #input>
+      </mat-form-field>
+  
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input matInput type="text" [(ngModel)]="user.apellidos" #input>
+      </mat-form-field>
+  
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Número telefónico</mat-label>
+        <input matInput type="text" [(ngModel)]="user.celular" #input>
+      </mat-form-field>
+  
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput type="text" [(ngModel)]="user.correo" #input>
+      </mat-form-field>
+  
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Nueva contraseña</mat-label>
+        <input matInput type="password" [(ngModel)]="newPassword" #inputPassword>
+      </mat-form-field>
+  
+      <mat-form-field class="formUsuario" appearance="fill">
+        <mat-label>Verificar nueva contraseña</mat-label>
+        <input matInput type="password"  [(ngModel)]="confirmPassword" #inputConfPassword>
+      </mat-form-field>
+  
+      
+  </div>
+</mat-dialog-content>
+<div class="botones">
+  <button mat-raised-button color="primary" class="btnCrearUsuario" (click)="editarUsuario()">Editar</button>
+  <button mat-raised-button color="warn" class="btnCrearUsuario" mat-dialog-close>Cerrar</button>
+</div>

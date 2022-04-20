@@ -1,0 +1,99 @@
+.bg{
+    background-color: rgb(244,246,249);
+    min-height: 100%;
+    padding: 1rem;
+}
+
+.bg-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.container{
+    background-color: white;
+    padding: 1rem;
+}
+
+.sheetHeader{
+    display: flex;
+    align-items: flex-start;
+}
+
+.cuerpoBitacora{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+
+
+.border{
+    border: 2px solid #224694;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.midPadding{
+    padding:0.5rem;
+}
+
+.involucradosContainer{
+    width: 25%;
+    padding: 0 1rem;
+    height: fit-content;
+    padding-bottom: 0.5rem;
+}
+.titulo{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tituloBit{
+    font-size: 25px;
+}
+
+.detalleCol{
+    width: 33%;
+}
+
+.detallesBit{
+    display: flex;
+}
+
+.detVert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detalle{
+    margin: 0;
+    color: #224694;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.descripcion{
+    margin: 0;
+}
+
+.colDetalles{
+    width: 14rem;
+    height: fit-content;
+}
+
+.sinNotas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+app-listado-notas{
+    width: 70%;
+}
+
+.detallesNota{
+    display: flex;
+    justify-content: space-between;
+}

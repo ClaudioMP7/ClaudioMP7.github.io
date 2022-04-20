@@ -21,6 +21,12 @@ div {
     flex-direction: column;
 }
 
+h2{
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: #122246;
+}
+
 .iForgot{
     color: #224694;
     margin-top: 1rem;
@@ -28,11 +34,12 @@ div {
 }
 
 .field-correo{
-    margin-top: 1rem;
+    width: 18rem;
 }
 
 .field-password{
     margin-top: 0.5rem;
+    width: 18rem;
 }
 
 .btnIniciarSesion{

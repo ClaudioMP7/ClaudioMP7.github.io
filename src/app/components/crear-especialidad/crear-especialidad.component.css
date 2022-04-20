@@ -1,0 +1,44 @@
+.bg{
+    background-color: rgb(244,246,249);
+    height: 100%;
+    padding: 1rem;
+}
+
+.inputName{
+    margin-top: 1rem;
+}
+
+.formUsuario, .formRol{
+    width: 20rem;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+}
+
+.add{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.addButton{
+    box-shadow: none !important;
+}
+
+.btnCrear{
+    margin-top: 1rem;
+    width: 8rem;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mat-snack-bar-container {
+    color: rgba(255, 255, 255, 0.7);
+    background: #224694 !important;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}

@@ -1,0 +1,25 @@
+h2{
+    margin: 0;
+}
+
+.headerInvolucrados{ 
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.involucradoCard{
+    margin: 1rem 0;
+    background: rgb(244,246,249);
+}
+
+mat-card-subtitle{
+    display: flex;
+    margin-bottom: 0.2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+mat-card{
+    padding: 0.5rem;
+}

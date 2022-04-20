@@ -1,0 +1,102 @@
+<mat-dialog-content class="mat-typography">
+  <body>
+    <div class="bg">
+        <h1>Crear Obra</h1>
+        <div class="container">
+            <div class="formSection">
+                <h2>Datos de la obra</h2>
+            </div>
+            <div class="formSection">
+
+                <div class="datosObra">
+                    <mat-form-field appearance="fill" class="numero">
+                        <mat-label>Número de obra</mat-label>
+                        <input matInput [(ngModel)]="obra.numero">
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill" class="titulo">
+                        <mat-label>Título de la obra</mat-label>
+                        <input matInput [(ngModel)]="obra.titulo">
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field class="details complete-form" appearance="fill">
+                    <mat-label>Descripción</mat-label>
+                    <textarea matInput placeholder="Descripción o apuntes de la obra" [(ngModel)]="obra.descripcion"></textarea>
+                </mat-form-field>
+
+                <div class="filtros">
+                    <mat-form-field appearance="fill" class="filtro">
+                        <mat-label>Inicio de la obra</mat-label>
+                        <input matInput [matDatepicker]="pickerInicio" disabled="true" [(ngModel)]="obra.inicio">
+                        <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerInicio disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill" class="filtro">
+                        <mat-label>Fin de la obra</mat-label>
+                        <input matInput [matDatepicker]="pickerFin" disabled="true" [(ngModel)]="obra.fin">
+                        <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerFin disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="filtros">
+                    <div class="addForm">
+                        <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="Crear nueva ubicación" aria-label="Agregar Usuario" (click)="dialogUbicacion()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <mat-form-field class="filtroB" appearance="fill">
+                            <mat-label>Ubicación </mat-label>
+                            <mat-select [(value)]="optionUbicacionesObra" [(ngModel)]="obra.ubicacionObra" #ubicacionSelector>
+                                <mat-option *ngFor="let ubicacionObra of listaUbicaciones" [value]="ubicacionObra.nombre">{{ubicacionObra.nombre}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    
+                    <div class="addForm">
+                        <mat-form-field appearance="fill" class="filtro">
+                            <mat-label>Prototipo</mat-label>
+                            <input matInput [(ngModel)]="obra.prototipo">
+                        </mat-form-field>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <mat-divider></mat-divider>
+            <div class="formSection">
+                <h2>Datos de los contratos</h2>
+
+               <div class="filtros">
+                    <mat-form-field appearance="fill" class="filtro">
+                        <mat-label>Número del contrato</mat-label>
+                        <input matInput [(ngModel)]="obra.numeroContrato">
+                    </mat-form-field>
+                   
+                    <mat-form-field class="filtro" appearance="fill" floatLabel="always">
+                        <mat-label>Importes</mat-label>
+                        <input matInput type="number" placeholder="0" [(ngModel)]="obra.importes">
+                        <span matPrefix>$&nbsp;</span>
+                      </mat-form-field>
+               </div>
+
+            </div>
+
+            <mat-divider></mat-divider>
+            <div class="formSection">
+                <h2>Reglas de uso</h2>
+                <mat-form-field class="details complete-form" appearance="fill">
+                    <mat-label>Describa las reglas de uso de esta obra</mat-label>
+                    <textarea matInput [(ngModel)]="obra.reglas"></textarea>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </div>
+</body>
+</mat-dialog-content>
+<div class="botones">
+  <button mat-raised-button color="primary" class="btnCrear" (click)="crear()" mat-dialog-close>Crear Obra</button>
+  <button mat-raised-button color="warn" class="btnCrear" mat-dialog-close>Cancelar</button>
+</div>

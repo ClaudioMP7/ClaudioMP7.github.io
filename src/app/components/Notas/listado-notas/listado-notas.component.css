@@ -1,0 +1,73 @@
+.border{
+    border: 2px solid #224694;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sinNotas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-card{
+    background: rgb(244,246,249);
+}
+
+.firmas{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnCrearNota{
+    margin-top: 1rem;
+}
+
+.nota{
+    width: -webkit-fill-available;
+}
+
+.respuesta{
+    margin-top: 1rem;
+    width: 90%;
+}
+
+.detallesNota{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.detalle{
+    margin: 0;
+    color: #224694;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.descripcion{
+    margin: 0;
+}
+
+.detVert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.midPadding{
+    padding:0.5rem;
+}
+
+.colDetalles{
+    width: 14rem;
+    height: fit-content;
+}
+
+.detallesBitacora{
+    width: -webkit-fill-available;
+}

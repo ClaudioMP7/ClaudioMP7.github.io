@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<body>
+    <div class="bg">
+        <div class="container">
+            <div class="sheet-header">
+                <h1>Bitácoras</h1>
+                <div class="add">
+                    <div class="example-button-container">
+                        <button mat-mini-fab color="primary" matTooltipPosition="left" matTooltip="Crear nueva bitácora" aria-label="Agregar Usuario" (click)="openAddBitacoraDialog()" class="mat-elevation-z4">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="options">
+                <div class="buscadores">
+                    <mat-form-field class="filter num" appearance="fill">
+                      <mat-label>Folio</mat-label>
+                      <input matInput [formControl]="folioFilter" #buscador1>
+                    </mat-form-field>
+  
+                    <mat-form-field class="filter" appearance="fill">
+                      <mat-label>Contratista</mat-label>
+                      <input matInput [formControl]="contratistaFilter" #buscador2>
+                    </mat-form-field>
+  
+                    <mat-form-field class="filter" appearance="fill">
+                      <mat-label>Especialidad</mat-label>
+                      <input matInput [formControl]="especialidadFilter" #buscador3>
+                    </mat-form-field>
+  
+                    <mat-form-field class="filter" appearance="fill">
+                      <mat-label>Supervisor</mat-label>
+                      <input matInput [formControl]="supervisorFilter" #buscador4>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            
+            <div class="table">
+                <mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+        
+                    <ng-container matColumnDef="folio">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Folio </mat-header-cell>
+                    <mat-cell *matCellDef="let bitacora"> {{bitacora.folio}} </mat-cell>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="numeroObra">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> N. Obra </mat-header-cell>
+                    <mat-cell *matCellDef="let bitacora"> {{bitacora.nObra}} </mat-cell>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="obra">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Obra </mat-header-cell>
+                    <mat-cell *matCellDef="let bitacora"> {{bitacora.tObra}} </mat-cell>
+                    </ng-container>             
+                    
+                    <ng-container matColumnDef="contratista">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Contratista </mat-header-cell>
+                    <mat-cell *matCellDef="let bitacora"> {{bitacora.contratista}} </mat-cell>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="especialidad">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Especialidad </mat-header-cell>
+                        <mat-cell *matCellDef="let bitacora"> {{bitacora.especialidad}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="supervisor">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Supervisor </mat-header-cell>
+                        <mat-cell *matCellDef="let bitacora"> {{bitacora.supervisor}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="involucrados">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Involucrados </mat-header-cell>
+                        <mat-cell *matCellDef="let bitacora"> <button mat-mini-fab color="primary" matTooltipPosition="left" matTooltip="Crear nueva bitácora" aria-label="Agregar Usuario" class="mat-elevation-z4">
+                            <mat-icon>add</mat-icon>
+                        </button> </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="accion">
+                        <th mat-header-cell *matHeaderCellDef> Accion </th>
+                        <td mat-cell *matCellDef="let bitacora">
+                            <button mat-mini-fab color="primary" matTooltipPosition="left" matTooltip="Crear nueva bitácora" aria-label="Agregar Usuario" class="mat-elevation-z4" routerLink="/crear-bitacora">
+                                <mat-icon>add</mat-icon>
+                            </button> </td>
+                    </ng-container>
+                    
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let bitacora; columns: displayedColumns;"
+                    (click)="openBitacoraDetail(bitacora)"></mat-row>
+                    
+                    <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No se encontró ningún resultado relacionado a los filtros"</td>
+                    </tr>
+                </mat-table>
+                
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+                </div>
+
+        </div>
+    </div>
+</body>
+  

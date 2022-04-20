@@ -1,0 +1,14 @@
+<h2>Crear Nota</h2>  
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <mat-form-field class="mensajeNota" appearance="fill">
+        <mat-label>Mensaje de la nota</mat-label>
+        <textarea matInput class="inputNota" [(ngModel)]="nota.mensaje"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<div class="botones">
+  <button mat-raised-button color="primary" class="btn" (click)="crearNota(nota.tipo!)" mat-dialog-close>Crear</button>
+  <button mat-raised-button color="warn" class="btn" mat-dialog-close>Cancelar</button>
+</div>

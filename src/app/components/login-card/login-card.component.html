@@ -1,8 +1,31 @@
 <div>
     <img src="./assets/img/LogotipoCarpin.jpg" alt="">
-    <app-input-clearable class="field-correo"></app-input-clearable>
-    <app-input-password class="field-password"></app-input-password>
-    <a class="iForgot" routerLink="/">Recuperar Contraseña</a>
-    <button mat-raised-button color="primary" class="btnIniciarSesion">Iniciar Sesión</button>
+    <h2>Inicio de Sesión</h2>
+    <mat-form-field class="field-correo">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput type="text" [formControl]="emailFormControl" [(ngModel)]="loginInfo.correo" #input>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Ingrese un correo electrónico válido
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Ingrese su correo electrónico
+          </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field-password">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" [(ngModel)]="loginInfo.password" #passwordInput>
+        <button mat-icon-button matSuffix tabindex="-1" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Ingrese su contraseña
+          </mat-error>
+    </mat-form-field>
+
+    <!--<app-input-clearable class="field-password"></app-input-clearable>
+    <app-input-password class="field-password"></app-input-password>-->
+    <a class="iForgot" routerLink="/recovery">Recuperar Contraseña</a>
+    <button mat-raised-button color="primary" class="btnIniciarSesion" (click)="login()">Iniciar Sesión</button>
 </div>
 

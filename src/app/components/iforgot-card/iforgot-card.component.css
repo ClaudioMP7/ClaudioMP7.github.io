@@ -2,7 +2,7 @@ img {
     width: 18rem;
 }
 
-div {
+.recoveryCard {
     box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 3px 3px;
     padding: 2rem;
     width: 20rem;
@@ -21,11 +21,27 @@ div {
     flex-direction: column;
 }
 
+h2{
+    font-weight: 900;
+    margin-bottom: 0;
+    color: #122246;
+}
+
 .field-correo{
     margin-top: 1rem;
+    width: 18rem;
 }
 
 .btnIniciarSesion{
     margin-top: 0.5rem;
 }
 
+.background {
+    background-color: #224694;
+}
+
+.Login{
+    color: #224694;
+    margin-top: 1rem;
+    text-decoration: none;
+}

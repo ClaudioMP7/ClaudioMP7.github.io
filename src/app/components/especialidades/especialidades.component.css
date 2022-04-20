@@ -1,0 +1,67 @@
+.bg{
+    background-color: rgb(244,246,249);
+    min-height: 100%;
+    padding: 1rem;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+    border-color: #224694;
+}
+
+
+.mat-row:nth-child(odd){
+    background: #22469411;
+}
+
+.mat-header-cell{
+    font-weight: bold;
+    font-size: 14px;
+    width: 15rem;
+}
+
+.container{
+    background-color: white;
+    padding: 2rem;
+}
+
+.filter, .formRol{
+    width: 20rem;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
+
+.filtros{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.add{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    align-items: flex-end;
+}
+
+.addButton{
+    box-shadow: none !important;
+}
+
+table{
+    width: 100%;
+    box-shadow: none !important;
+}
+
+td, th {
+  width: 19%;
+}

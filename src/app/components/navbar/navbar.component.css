@@ -1,0 +1,26 @@
+.navtab{
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.sub-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} 
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cerrarSesion{
+    margin-right: 1rem;
+}
+
+img{
+    height: 3rem;
+}

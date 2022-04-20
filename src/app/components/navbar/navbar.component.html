@@ -1,8 +1,78 @@
-<ul>
+<!--<ul>
     <li>
         <a routerLink="/usuarios">Usuarios</a>
     </li>
     <li>
         <a routerLink="/perfil">Perfil</a>
     </li>
-</ul>
+</ul>-->
+
+<div class="navbar">
+  <div class="sub-navbar">
+    <img src="./assets/img/LogotipoCarpin.jpg" alt="">
+
+    
+
+    <div class="pestañas">
+      <button mat-button routerLink="/obras">
+        <mat-icon>business</mat-icon>
+        <span>Obras</span>
+      </button>
+    </div>
+
+    <div class="pestañas">
+      <button mat-button routerLink="/bitacoras">
+        <mat-icon>book</mat-icon>
+        <span>Bitácoras</span>
+      </button>
+    </div>
+
+    <div class="pestañas">
+      <button mat-button routerLink="/usuarios">
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Usuarios</span>
+      </button>
+    </div>
+
+    <div mat-button class="navtab">
+      <div class="pestañas">
+        <button mat-button [matMenuTriggerFor]="catalogos"><mat-icon>folder</mat-icon>Catálogos</button>
+      </div>
+    </div>
+
+    <mat-menu #catalogos="matMenu">
+
+      <button mat-menu-item routerLink="/especialidades">
+        <mat-icon>assistant</mat-icon>
+        <span>Especialidades</span>
+      </button>
+
+      <button mat-menu-item routerLink="/ubicaciones">
+        <mat-icon>pin_drop</mat-icon>
+        <span>Ubicaciones</span>
+      </button>
+      
+    </mat-menu>
+
+  </div>
+  
+  
+  <div class="cerrarSesion">
+    <!--<button mat-raised-button color="primary" (click)="logOut()">Cerrar Sesion</button>-->
+        <button mat-button [matMenuTriggerFor]="menu"><mat-icon>assignment_ind</mat-icon>{{user.nombre}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item   (click)="logOut()"><mat-icon>assignment_return</mat-icon>Cerrar Sesión</button>
+    </mat-menu>
+  </div>
+</div>
+
+  <!--<nav mat-tab-nav-bar>
+    <a mat-tab-link routerLink="/usuarios" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+    Usuarios
+    </a>
+    <a mat-tab-link routerLink="/perfil" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">
+      Mi Perfil
+    </a>
+  </nav>-->

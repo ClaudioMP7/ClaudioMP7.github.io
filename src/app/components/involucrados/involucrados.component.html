@@ -1,0 +1,14 @@
+<div class="headerInvolucrados">
+    <h2>Personal involucrado</h2>
+    <button mat-icon-button color="primary" matTooltipPosition="above" matTooltip="Agregar involucrado" aria-label="Agregar Usuario" (click)="openAddInvolucradoDialog()" class="btn">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+<mat-card class="involucradoCard" *ngFor="let involucrado of listaInvolucrados">
+    <mat-card-subtitle>{{involucrado.usuario}} <mat-icon *ngIf="involucrado.firma=='1'; else iconoFirma">remove_red_eye</mat-icon> </mat-card-subtitle>
+    <mat-card-subtitle>{{involucrado.correo}} <mat-icon *ngIf="involucrado.notificaciones=='1'; else iconoNoNotifica">notifications_active</mat-icon></mat-card-subtitle>
+</mat-card>
+
+<ng-template #iconoFirma><mat-icon>check_circle</mat-icon></ng-template>
+<ng-template #iconoNoNotifica><mat-icon>notifications_off</mat-icon></ng-template>

@@ -1,2 +1,88 @@
 <app-navbar></app-navbar>
-<p>usuarios works!</p>
+<body>
+  <div class="bg">
+      <div class="container">
+        <div class="sheet-header">
+          <h1>Usuarios</h1>
+          <div class="add">
+            <div class="example-button-container">
+              <button mat-mini-fab color="primary" matTooltipPosition="left" matTooltip="Crear nuevo usuario" aria-label="Agregar Usuario" class="mat-elevation-z4" (click)="openAddUserDialog()">
+                  <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+          <div class="options">
+            <div class="filtros">
+                <mat-form-field class="formUsuario" appearance="fill">
+                    <mat-label>Buscar Usuario</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" type="text" #input>
+                  </mat-form-field>
+                  
+                  <mat-form-field class="formRol" appearance="fill">
+                    <mat-label>Rol</mat-label>
+                    <mat-select [formControl]="rolControl">
+                        <mat-option value="todos">Todos los roles</mat-option>
+                        <mat-option value="administrador">Administrador</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            
+            
+          </div>
+  
+
+          <div class="table">
+              <mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+                
+                <ng-container matColumnDef="idUsuario">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                  <mat-cell *matCellDef="let user"><span class="mobile">ID:</span> {{user.idUsuario}} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="nombre">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                  <mat-cell *matCellDef="let user"><span class="mobile">Nombre:</span> {{user.nombre}} {{user.apellidos}} </mat-cell>
+                </ng-container>
+  
+                <ng-container matColumnDef="correo">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+                  <mat-cell *matCellDef="let user"><span class="mobile">Correo:</span> {{user.correo}} </mat-cell>
+                </ng-container>
+                
+                <ng-container matColumnDef="celular">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Celular </mat-header-cell>
+                  <mat-cell *matCellDef="let user"><span class="mobile">Celular:</span> {{user.celular}} </mat-cell>
+                </ng-container>
+                
+                <ng-container matColumnDef="rol">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Rol </mat-header-cell>
+                  <mat-cell *matCellDef="let user"><span class="mobile">Rol:</span> {{user.nombreRol}} </mat-cell>
+                </ng-container>
+            
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let user; columns: displayedColumns;"
+                (click)="openUserDetail(user)"></mat-row>
+            
+                
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No se encontró ningún resultado relacionado a "{{input.value}}"</td>
+                </tr>
+              </mat-table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+  
+      </div>
+  </div>
+</body>
+
+<!-- <ng-container matColumnDef="fecha"  sticky>
+                        <mat-header-cell *matHeaderCellDef class="centered  small-cell">Creado</mat-header-cell>
+                        <mat-cell *matCellDef="let element"   class=" small-cell" style="left: 0;">
+                            <div class = "mobile-label w-1/4 md:w-auto">Creado:</div>
+                            <div class = "break-words w-full md:w-auto md:text-center text-left md:pl-0 pl-3 text-xs">{{element.cdT_CREATED_DATE| date:'dd/MM/yy' }}</div>
+                        </mat-cell>
+                    </ng-container>
+-->

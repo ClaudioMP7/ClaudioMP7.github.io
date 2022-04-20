@@ -1,0 +1,41 @@
+<mat-dialog-content class="mat-typography">
+    <body>
+        <div class="bg">
+            <h1>Crear Bitácora</h1>
+            <div class="container">
+                <mat-form-field class="form" appearance="fill">
+                    <mat-label>Obra</mat-label>
+                    <mat-select [(ngModel)]="bitacora.idObra">
+                        <mat-option *ngFor="let obra of listaObras" [value]="obra.idObra">{{obra.titulo}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form" appearance="fill">
+                    <mat-label>Contratista</mat-label>
+                    <mat-select [(ngModel)]="bitacora.idContratista">
+                        <mat-option *ngFor="let contratista of listaContratistas" [value]="contratista.idUsuario">{{contratista.nombre}} {{contratista.apellidos}}  ({{ contratista.correo }})</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form" appearance="fill">
+                    <mat-label>Especialidad</mat-label>
+                    <mat-select [(ngModel)]="bitacora.idEspecialidad">
+                        <mat-option *ngFor="let especialidad of listaEspecialidades" [value]="especialidad.idEspecialidad">{{especialidad.nombre}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                
+                <mat-form-field class="form" appearance="fill">
+                    <mat-label>Supervisor</mat-label>
+                    <mat-select [(ngModel)]="bitacora.idSupervisor">
+                        <mat-option *ngFor="let usuario of listaUsuarios" [value]="usuario.idUsuario">{{usuario.nombre}} {{usuario.apellidos}}  ({{ usuario.correo }})</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+        </div>
+    </body>
+</mat-dialog-content>
+<div class="botones">
+  <button mat-raised-button color="primary" class="btnCrear" (click)="crear()" mat-dialog-close>Crear Obra</button>
+  <button mat-raised-button color="warn" class="btnCrear" mat-dialog-close>Cancelar</button>
+</div>

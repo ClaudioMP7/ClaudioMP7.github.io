@@ -1,0 +1,68 @@
+.bg{
+    background-color: rgb(244,246,249);
+    min-height: 100%;
+    padding: 1rem;
+}
+
+.container{
+    background-color: white;
+    padding: 1rem;
+    width: 40rem;
+}
+
+h1{
+    font-weight: 500;
+}
+
+.btnBack{
+    margin-bottom: 1rem;
+}
+
+.numero{
+    width: 23%;
+}
+
+.titulo{
+    width: 73%;
+}
+
+.datosObra{
+    display: flex;
+    justify-content: space-between;
+}
+
+.formSection{
+   padding: 0 1rem; 
+}
+
+.complete-form{
+    width: 100%;
+}
+
+.addForm{
+    display: flex;
+    justify-content: center;
+}
+
+.filtro{
+    width: 18rem;
+}
+
+.filtroB{
+    width: 15.5rem;
+}
+
+.filtroC{
+    width: 10rem;
+}
+
+.filtros{
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}

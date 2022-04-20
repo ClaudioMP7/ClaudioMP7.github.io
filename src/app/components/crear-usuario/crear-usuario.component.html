@@ -1,0 +1,65 @@
+  <h2>Crear Usuario</h2>  
+  <mat-divider></mat-divider>
+  <mat-dialog-content class="mat-typography">
+    <div class="filtros">
+      <mat-form-field class="formUsuario inputName" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" [(ngModel)]="user.nombre" #input>
+          <button *ngIf="user.nombre" matSuffix mat-icon-button aria-label="Clear" (click)="user.nombre=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    
+        <mat-form-field class="formUsuario" appearance="fill">
+          <mat-label>Apellidos</mat-label>
+          <input matInput type="text" [(ngModel)]="user.apellidos" #input>
+          <button *ngIf="user.apellidos" matSuffix mat-icon-button aria-label="Clear" (click)="user.apellidos=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    
+        <mat-form-field class="formUsuario" appearance="fill">
+          <mat-label>Número telefónico</mat-label>
+          <input matInput type="text" [(ngModel)]="user.celular" #input>
+          <button *ngIf="user.celular" matSuffix mat-icon-button aria-label="Clear" (click)="user.celular=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    
+        <mat-form-field class="formUsuario" appearance="fill">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput type="text" [(ngModel)]="user.correo" #input>
+          <button *ngIf="user.correo" matSuffix mat-icon-button aria-label="Clear" (click)="user.correo=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    
+        <mat-form-field class="formUsuario" appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" [(ngModel)]="user.password" #input>
+          <button *ngIf="user.password" matSuffix mat-icon-button aria-label="Clear" (click)="user.password=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    
+        <mat-form-field class="formUsuario" appearance="fill">
+          <mat-label>Verificar Contraseña</mat-label>
+          <input matInput type="password"  [(ngModel)]="value" #input>
+          <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+    
+        <mat-form-field class="filtroB" appearance="fill">
+          <mat-label>Rol</mat-label>
+          <mat-select [(value)]="optionRoles" [(ngModel)]="user.idRol" #ubicacionSelector>
+              <mat-option *ngFor="let rolesUsuario of listaRoles" [value]="rolesUsuario.idRol">{{rolesUsuario.nombre}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+    </div>
+  </mat-dialog-content>
+  <div class="botones">
+    <button mat-raised-button color="primary" class="btnCrearUsuario" (click)="crearUsuario()" mat-dialog-close>Crear</button>
+    <button mat-raised-button color="warn" class="btnCrearUsuario" mat-dialog-close>Cancelar</button>
+  </div>
